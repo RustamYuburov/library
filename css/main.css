@@ -8,170 +8,149 @@
   padding: 0;
 }
 
-html, body {
-    height: 100%;
-    background-color: rgb(208, 221, 32);
-    font-family: 'Cabin', Arial, Helvetica, sans-serif;
+html,
+body {
+  height: 100%;
+  background-color: rgb(208, 221, 32);
+  font-family: 'Cabin', Arial, Helvetica, sans-serif;
+  /* position: relative; */
 }
 
 /* Header */
 header {
-    padding: 2rem 0;
-    border: 2px solid;
-    text-align: left;
-    background-color: rgb(43, 35, 114);
+  padding: 2rem 0;
+  border: 2px solid;
+  text-align: left;
+  background-color: rgb(43, 35, 114);
 }
 
 h1 {
-    font-family: 'Luckiest guy', Verdana, sans-serif;
-    font-size: 3rem;
-    margin-left: 100px;
-    color: rgb(0, 255, 191);
-    text-shadow: 10px 10px 10px #111111;
-    display: inline;
+  font-family: 'Luckiest guy', Verdana, sans-serif;
+  font-size: 3rem;
+  margin-left: 100px;
+  color: rgb(0, 255, 191);
+  text-shadow: 10px 10px 10px #111111;
+  display: inline;
 }
 
 /* Bookshelf */
-
 .bookshelf {
-    margin: 1rem;
-    height: 500px;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Books */
-
-.book {
-    border: 2px solid black;
-    margin: 1rem;
-    text-align: center;
-    color: white;
-    background-color: rgb(33, 15, 68);
-    border-radius: 10px;
-}
-
-
-
-.book h3 {
-    text-align: center;
-    margin: 50px 30px;
-}
-
-#status-book {
-    display: inline-block;
-    width: fit-content;
-}
-
-/* Buttons */
-
-.add-btn {
-    background-color: rgb(248, 6, 6);
-    position: absolute;
-    border: 1px;
-    border-radius: 50%;
-    box-shadow: 3px 3px 10px rgb(39, 39, 39);
-    bottom: 50px;
-    right: 80px;
-    transition: 0.5s;
-    outline: none;
-}
-
-.add-btn:hover {
-    transform: scale(1.1);
-    background-color: rgb(209, 12, 12);
-}
-
-.add-btn:active { transform: translateY(4px); }
-
-.plus {
-    color: rgb(247, 255, 253);
-    font-size: 2em;
-    padding: 5px;
-}
-
-button {
-    padding: 10px 15px;
-    outline: none;
-    border: rgb(253, 253, 253) solid 2px;
-    border-radius: 5px;
-    background-color: rgb(31, 244, 252);
-    color: rgb(0, 0, 0);
-    font-size: 1em;
-}
-
-button:active { transform: translateY(3px);}
-
-button:hover {
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
-    border-color: rgb(255, 255, 255);
-    transition: 0.4s;
-}
-
-.close-btn {
-    /* border: none; */
-    border: black solid;
-    background-color: inherit;
-    font-size: 20px;
-    padding: 5px 10px;
-    border-radius: 50%;
-    border: solid;
-    margin-left: 40px;
-    padding-top: -50px;
+  border: solid black;
+  margin: 1rem;
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Form */
-
-#form {
-    position: fixed;
-    z-index: 1;
-    border: black solid;
-    border-radius: 10px;
+.form {
+    display: none;
+    border: solid black;
+    padding: 30px;
+    width: 350px;
+    position: absolute;
     top: 50%;
     left: 50%;
-    height: 500px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: rgba(16, 23, 245, 0.74);
-    transform: translate(-50%, -50%) scale(1);
-    transition: 0.5s;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+    transform: translate(-50%, -50%);
+    transition: 500ms ease-in-out;
 }
 
-
-.add-book {
+.form-title {
+    font-size: 35px;
+    font-weight: 600;
     text-align: center;
-    font-size: 3em;
-    padding: 10px;
-    display: inline-block;
 }
 
-.input-form {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.5em;
+.form form {
+    margin-top: -20px;
 }
 
-.input-form input[type='text'],
-.input-form input[type='number'],
-select {
+.form form .data {
+    height: 45px;
     width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    background-color: rgb(240, 239, 239);
-    margin: 5px;
-    border: none;
-    outline: 1px;
+    margin: 40px 0;
 }
 
-.input-form input[type='submit'] {
-    padding: 5px;
-    font-size: 20px;
-    background-color: rgb(88, 231, 59);
+form .data input {
+    height: 100%;
+    width: 100%;
+    font-size: 17px;
+    border: 1px solid lightgray;
     outline: none;
+    padding-left: 10px;
+}
+
+form .data select {
+    height: 100%;
+    width: 100%;
+    font-size: 17px;
+    border: 1px solid lightgray;
+    outline: none;
+    padding-left: 10px;
+}
+
+form .data label {
+    font-size: 18px;
+}
+
+/* Buttons */
+.add-button {
+  position: fixed;
+  padding: 0 15px;
+  right: 100px;
+  bottom: 100px;
+  border: black thin;
+  border-radius: 50%;
+  font-size: 50px;
+  outline: none;
+  background-color: rgb(255, 15, 15);
+  box-shadow: 0px 0px 4px 2px rgba(73, 72, 72, 0.5);
+}
+
+.add-button:hover {
+  background-color: rgb(228, 15, 15);
+  transition: 0.5s;
+  transform: rotateY(5px);
+}
+
+.rotated {
+  transform: rotate(45deg);
+}
+
+form .submit-button {
+    margin: 40px 0;
+    height: 45px;
+    width: 100%;
+}
+
+form .submit-button button {
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+}
+
+.close-btn {
+    position: absolute;
+    right: 30px;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 50%;
+    padding:0 6px;
+    outline: none;
+    background: none;
     border: solid;
-    border-radius: 5px;
+}
+
+.close-btn:active {
+    background-color: black;
+    color: white;
+    transform: rotateY(5px);
 }
