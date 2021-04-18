@@ -14,6 +14,20 @@
         <h1>Library</h1>
     </header>
 
+    
+    <div class="bookshelf">
+        <div class="book">
+            <h3>Title: One Piece</h3>
+            <h3>Written by: Eichiro Oda</h3>
+            <h3>Number of pages: 500</h3>
+            <select name="status-book" id="status-book">
+                <option value="read-book">Read</option>
+                <option value="not-read-book">Not read</option>
+            </select>
+            <button>Delete</button>
+        </div>
+    </div>
+    
     <form id="form" action="" method="get" name="form">
         <div class="add-book">
             <span>New Book</span>
@@ -29,23 +43,12 @@
             <label for="status">Status</label>
             <select name="status" id="status">
                 <option value="read">Read</option>
-                <option value="not read">Haven't read yet</option>
+                <option value="not-read">Haven't read yet</option>
             </select>
             <br/>
             <input type="submit" value="Submit">
         </div>
     </form>
-
-    <div class="bookshelf">
-        <div class="book">
-            <h3>Title: One Piece</h3>
-            <h3>Written by: Eichiro Oda</h3>
-            <h3>Number of pages: 500</h3>
-            <h3>Status: Read</h3>
-            <button>Delete</button>
-        </div>
-    </div>
-
 
     <button class="add-btn"><span class="plus">+</span></button>
 
