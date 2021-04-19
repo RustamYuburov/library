@@ -4,6 +4,7 @@
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -13,7 +14,6 @@ body {
   height: 100%;
   background-color: rgb(208, 221, 32);
   font-family: 'Cabin', Arial, Helvetica, sans-serif;
-  /* position: relative; */
 }
 
 /* Header */
@@ -39,23 +39,62 @@ h1 {
   margin: 1rem;
   height: 500px;
   display: flex;
+  justify-content: start;
+}
+
+.book {
+  border: 2px solid black;
+  margin: 2rem;
   justify-content: space-between;
+  text-align: center;
+  width: 240px;
+  color: white;
+  background-color: rgb(33, 15, 68);
+  border-radius: 10px;
+}
+
+.book h3 {
+  margin: 15px 0;
+  padding:15px;
+}
+.book-content {
+  margin-bottom: 10px;
+}
+.book button {
+  margin: 10px;
+  color: rgb(64, 252, 7);
+  background-color: #ee0202b7;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.book button:active {
+  transform: translateY(4px); 
+  transition: 100ms ease-in;
 }
 
 /* Form */
-.form {
-    display: none;
-    border: solid black;
+.module {
+  position: fixed;
+  border: solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border-radius: 15px;
+  z-index: 2;
+  background-color: #fff;
+  width: 400px;
     padding: 30px;
-    width: 350px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #fff;
-    border-radius: 15px;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
-    transform: translate(-50%, -50%);
-    transition: 500ms ease-in-out;
+}
+
+.module.active {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .form-title {
@@ -64,11 +103,11 @@ h1 {
     text-align: center;
 }
 
-.form form {
+.module form {
     margin-top: -20px;
 }
 
-.form form .data {
+.module form .data {
     height: 45px;
     width: 100%;
     margin: 40px 0;
@@ -96,8 +135,26 @@ form .data label {
     font-size: 18px;
 }
 
+#overlay {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
 /* Buttons */
 .add-button {
+  cursor: pointer;
   position: fixed;
   padding: 0 15px;
   right: 100px;
@@ -108,16 +165,16 @@ form .data label {
   outline: none;
   background-color: rgb(255, 15, 15);
   box-shadow: 0px 0px 4px 2px rgba(73, 72, 72, 0.5);
+  transition: all 0.5s;
 }
 
 .add-button:hover {
   background-color: rgb(228, 15, 15);
-  transition: 0.5s;
   transform: rotateY(5px);
 }
 
 .rotated {
-  transform: rotate(45deg);
+  transform: rotate(135deg);
 }
 
 form .submit-button {
@@ -127,6 +184,7 @@ form .submit-button {
 }
 
 form .submit-button button {
+  cursor: pointer;
     width: 100%;
     height: 100%;
     background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
@@ -138,19 +196,13 @@ form .submit-button button {
 }
 
 .close-btn {
+  cursor: pointer;
     position: absolute;
     right: 30px;
-    font-size: 25px;
-    font-weight: 500;
+    font-size: 30px;
+    font-weight: 600;
     border-radius: 50%;
-    padding:0 6px;
     outline: none;
     background: none;
-    border: solid;
-}
-
-.close-btn:active {
-    background-color: black;
-    color: white;
-    transform: rotateY(5px);
+    border: none;
 }
