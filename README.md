@@ -9,4 +9,4 @@ What i got from making this project:
 
 ## Live demo available here:
 
-[Library](https://github.com/RustamYuburov/library)
+[Library](https://rustamyuburov.github.io/library/)
