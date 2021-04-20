@@ -3,14 +3,13 @@ const module = document.querySelector('.module');
 const addButton = document.querySelector('[data-form-target]');
 const closeButton = document.querySelector('[data-close-button]');
 const overlay = document.querySelector('#overlay');
-const submitButton = document.querySelector('.submit-button');
 const form = document.querySelector('#form');
 const bookshelf = document.querySelector('.bookshelf');
 
 // Setting EventListeners
 addButton.addEventListener('click', showModule);
 closeButton.addEventListener('click', closeModule);
-submitButton.addEventListener('click', addBookToLibrary);
+form.addEventListener('submit', addBookToLibrary);
 overlay.addEventListener('click', () => {
   const modules = document.querySelectorAll('.module.active');
   modules.forEach((module) => {

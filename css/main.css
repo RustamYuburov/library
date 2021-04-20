@@ -184,6 +184,7 @@ form .submit-button {
 }
 
 form .submit-button button {
+  z-index: 10;
   cursor: pointer;
     width: 100%;
     height: 100%;
